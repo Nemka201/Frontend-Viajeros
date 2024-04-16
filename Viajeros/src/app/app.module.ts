@@ -13,6 +13,7 @@ import { PostsComponent } from './views/posts/posts.component';
 import { SocialMediaComponent } from './components/social-media/social-media.component';
 import { VideoCardComponent } from './components/video-card/video-card.component';
 import { VideosIndexComponent } from './components/videos-index/videos-index.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { VideosIndexComponent } from './components/videos-index/videos-index.com
     PostsComponent,
     SocialMediaComponent,
     VideoCardComponent,
-    VideosIndexComponent
+    VideosIndexComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
