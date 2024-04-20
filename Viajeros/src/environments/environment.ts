@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  URL: 'http://localhost:8080/',
-};
-
+  URL: 'https://localhost:7267/api/',
+  CLOUDINARY_URL: 'cloudinary://727459136938598:jLBcUm0OIlq1Yyfmy9tJIlOu0ro@dbmmuorib',
+  cloudName: 'dbmmuorib'
+}
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

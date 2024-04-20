@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Cloudinary } from '@cloudinary/url-gen';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Viajeros';
+  ngOnInit(){
+    const cld = new Cloudinary({cloud:{cloudName:environment.cloudName}});
+  }
 }

@@ -29,6 +29,9 @@ export class VideoService {
   public GetVideos () : Observable<Video[]> {
     return this.HttpClient.get<Video[]>(this.VideoRoute + '/GetAll');
   }
+  public GetVideosByTag (id: number) : Observable<Video[]> {
+    return this.HttpClient.get<Video[]>(this.VideoRoute + `/GetByTag/${id}`);
+  }
   public GetLastVideos () : Observable<Video[]> {
     return this.HttpClient.get<Video[]>(this.VideoRoute + '/GetLasts')
   }
