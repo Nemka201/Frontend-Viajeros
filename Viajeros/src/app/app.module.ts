@@ -22,6 +22,8 @@ import { EditPostComponent } from './components/post/edit-post/edit-post.compone
 import { EditVideoComponent } from './components/videos-index/edit-video/edit-video.component';
 import { RegisterComponent } from './components/login/register/register.component';
 import { CloudinaryModule } from '@cloudinary/ng';
+import { LastPostComponent } from './components/post/last-post/last-post.component';
+import { LastVideoComponent } from './components/video-card/last-video/last-video.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { CloudinaryModule } from '@cloudinary/ng';
     AddPostComponent,
     EditPostComponent,
     EditVideoComponent,
-    RegisterComponent
+    RegisterComponent,
+    LastPostComponent,
+    LastVideoComponent
   ],
   imports: [
     BrowserModule,

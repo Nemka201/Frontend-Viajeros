@@ -10,6 +10,6 @@ import { environment } from 'src/environments/environment';
 export class AppComponent {
   title = 'Viajeros';
   ngOnInit(){
-    const cld = new Cloudinary({cloud:{cloudName:environment.cloudName}});
+    const cld = new Cloudinary({cloud:{cloudName:environment.cloudinary.cloudName}});
   }
 }

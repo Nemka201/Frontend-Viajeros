@@ -14,4 +14,4 @@ export interface VideoTag {
     video: Video;
     tagId: number;
     tag: Tag;
-}
+} 

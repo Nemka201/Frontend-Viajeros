@@ -1,1 +1,12 @@
-<p>post works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <app-add-post/>
+            <div class="post" *ngFor="let post of posts">
+                <h2>{{post.title}}</h2>
+                <p>{{post.description}}</p>
+                <p>{{post.created}}</p>
+            </div>
+        </div>
+    </div>
+</div>

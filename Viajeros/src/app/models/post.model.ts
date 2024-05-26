@@ -10,3 +10,7 @@ export interface PostImage {
   postId: number;
   imageUrl: string;
 }
+export interface PostDTO {
+  post: Post;
+  imagesUrl: string[] | undefined;
+}
