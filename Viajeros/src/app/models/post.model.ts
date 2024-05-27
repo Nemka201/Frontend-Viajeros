@@ -1,16 +1,16 @@
 export interface Post {
-  id: number;
+  id?: number;
   title: string;
   description: string;
-  created: Date;
+  created?: Date;
   images: PostImage[];
 }
 export interface PostImage {
-  id: number;
+  id?: number;
   postId: number;
   imageUrl: string;
 }
 export interface PostDTO {
   post: Post;
-  imagesUrl: string[] | undefined;
+  imagesUrl?: string[] | undefined;
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { jwtDecode } from 'jwt-decode';
 
 const TOKEN_KEY = 'AuthToken';
 const USERNAME_KEY = 'AuthUsername';
@@ -12,7 +13,6 @@ export class TokenService {
   constructor() { }
 
   public setToken(token:string):void{
-    // Elimina TOKEN_KEY y añade el nuevo valor de Token
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY,token);
   }
@@ -26,19 +26,26 @@ export class TokenService {
   public getUsername ():string{
     return window.sessionStorage.getItem(USERNAME_KEY)!;
   }
-  public setAuthorities (authorities:string[]):void{
+  public setAuthorities (authorities:string):void{
     window.sessionStorage.removeItem(AUTHORITIES_KEY);
-    window.sessionStorage.setItem(AUTHORITIES_KEY,JSON.stringify(authorities));
+    window.sessionStorage.setItem(AUTHORITIES_KEY,authorities);
   }
   public getAuthorities ():string[]{
     this.roles = [];
     if(sessionStorage.getItem(AUTHORITIES_KEY)){
-      JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY)!).forEach((authority:any) => {
-        this.roles.push(authority.authority);
-      });
+      this.roles.push(sessionStorage.getItem(AUTHORITIES_KEY) || "user");
     }
     return this.roles;
   }
+  getDecodedToken(token: string): any {
+    try {
+      return jwtDecode(token);
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return null;
+    }
+  }
+  
   public Logout():void{
     window.sessionStorage.clear();
   }

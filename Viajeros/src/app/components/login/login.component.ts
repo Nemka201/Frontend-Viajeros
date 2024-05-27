@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   roles!: string[];
   errMsj!: string;
   loginForm: FormGroup;
-
+  decodeToken!: string;
   constructor(
     private tokenService: TokenService,
     private authService: AuthService,
@@ -42,10 +42,16 @@ export class LoginComponent implements OnInit {
     this.authService.Login(this.loginForm.value).subscribe((data) => {
       this.isLogged = true;
       this.tokenService.setToken(data.token);
-      this.tokenService.setUsername(data.username);
-      this.tokenService.setAuthorities(data.authorities);
-      this.roles = data.authorities;
+        const decodedToken = this.tokenService.getDecodedToken(data.token);
+      if (decodedToken) {
+        const role = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+        const name = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+        this.tokenService.setUsername(name); 
+        this.tokenService.setAuthorities(role);
+        this.roles = decodedToken.role;
+      }
       this.router.navigate(['']);
     });
   }
+  
 }
