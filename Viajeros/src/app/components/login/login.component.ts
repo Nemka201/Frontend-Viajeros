@@ -1,5 +1,5 @@
-import { Component , OnInit} from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginUser } from 'src/app/models/login.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/jwt.service';
@@ -41,17 +41,23 @@ export class LoginComponent implements OnInit {
     this.loginUser = new LoginUser(this.username, this.password);
     this.authService.Login(this.loginForm.value).subscribe((data) => {
       this.isLogged = true;
+      this.tokenService.setLogged(true);
       this.tokenService.setToken(data.token);
-        const decodedToken = this.tokenService.getDecodedToken(data.token);
+      const decodedToken = this.tokenService.getDecodedToken(data.token);
       if (decodedToken) {
-        const role = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
-        const name = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
-        this.tokenService.setUsername(name); 
+        const role =
+          decodedToken[
+            'http://schemas.microsoft.com/ws/2008/06/identity/claims/role'
+          ];
+        const name =
+          decodedToken[
+            'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'
+          ];
+        this.tokenService.setUsername(name);
         this.tokenService.setAuthorities(role);
         this.roles = decodedToken.role;
       }
-      this.router.navigate(['']);
+      this.ngOnInit();
     });
   }
-  
 }

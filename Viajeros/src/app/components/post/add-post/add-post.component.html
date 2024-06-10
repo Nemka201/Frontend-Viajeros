@@ -5,14 +5,14 @@
 
 <!-- Modal -->
 <div class="modal fade text-dark" id="addPostModal" tabindex="-1" aria-labelledby="addPostModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5 text-center" id="addPostModal">Agregar Post</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form [formGroup]="postForm" (ngSubmit)="AddPost()">
-        <div class="modal-body londrina-solid-light">
+        <div class="modal-body">
           <label class="form-label" for="username">Titulo:</label>
           <input type="text" id="title" name="title" class="form-control mb-2" formControlName="title"
             placeholder="Ingrese el titulo" required />

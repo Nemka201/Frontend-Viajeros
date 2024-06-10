@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 const TOKEN_KEY = 'AuthToken';
 const USERNAME_KEY = 'AuthUsername';
@@ -10,8 +11,13 @@ const AUTHORITIES_KEY = 'AuthAuthorities';
 })
 export class TokenService {
   roles: Array<string> = [];
+  private isLoggedSubject = new BehaviorSubject<boolean>(false);
+  isLogged$ = this.isLoggedSubject.asObservable();
+  
   constructor() { }
-
+  public setLogged(value: boolean) {
+    this.isLoggedSubject.next(value); 
+  }
   public setToken(token:string):void{
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY,token);

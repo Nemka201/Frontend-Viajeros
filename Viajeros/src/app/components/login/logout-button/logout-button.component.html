@@ -1,0 +1,20 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-danger align-self-center" data-bs-toggle="modal" data-bs-target="#logoutModal" *ngIf="isLogged">
+    Salir
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade text-dark" id="logoutModal" tabindex="-1" aria-labelledby="logoutModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-center" id="loginModal">¿Salir de la cuenta?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+          <div class="modal-footer text-center justify-content-center">
+            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-danger" (click)="Logout()" data-bs-dismiss="modal">Salir</button>
+          </div>
+      </div>
+    </div>
+  </div>

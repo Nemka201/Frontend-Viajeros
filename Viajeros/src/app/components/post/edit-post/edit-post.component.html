@@ -1,39 +1,41 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary align-self-center" data-bs-toggle="modal" data-bs-target="#addPostModal">
-    Agregar
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade text-dark" id="addPostModal" tabindex="-1" aria-labelledby="addPostModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5 text-center" id="addPostModal">Agregar Post</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form [formGroup]="postForm" (ngSubmit)="UpdatePost()">
-          <div class="modal-body londrina-solid-light">
-            <label class="form-label" for="username">Titulo:</label>
-            <input type="text" id="title" name="title" class="form-control mb-2" formControlName="title"
-              placeholder="Ingrese el titulo" required />
-            <label class="form-label" for="description">Descripción:</label>
-            <textarea id="description" name="description" class="form-control " formControlName="description"
-              required></textarea>
-  
-          </div>
-          <section class="p-3">
-            <ngx-dropzone (change)="onSelect($event)" accept="image/jpeg,image/jpg,image/png">
-              <ngx-dropzone-label>Arrastra las imagenes</ngx-dropzone-label>
-              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
-                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-              </ngx-dropzone-image-preview>
-            </ngx-dropzone>
-          </section>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" (click)="UpdatePost()">Agregar</button>
-          </div>
-        </form>
+<button type="button" class="btn btn-primary align-self-center" data-bs-toggle="modal"
+  [attr.data-bs-target]="'#' + post.created">
+  Editar
+</button>
+
+<!-- Modal -->
+<div class="modal fade text-dark" [attr.id]="post.created" [attr.aria-labelledby]="post.created" tabindex="-1"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" [attr.id]="post.date">Modificar Post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form [formGroup]="postForm" (ngSubmit)="UpdatePost()">
+        <div class="modal-body londrina-solid-light">
+          <label class="form-label" for="title">Titulo:</label>
+          <input type="text" id="title" name="title" class="form-control mb-2" formControlName="Title"
+            placeholder="Ingrese el titulo" required />
+          <label class="form-label" for="description">Descripción:</label>
+          <textarea id="description" name="description" class="form-control " formControlName="Description"
+            required></textarea>
+
+        </div>
+        <section class="p-3">
+          <ngx-dropzone (change)="onSelect($event)" accept="image/jpeg,image/jpg,image/png">
+            <ngx-dropzone-label>Arrastra las imagenes</ngx-dropzone-label>
+            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+            </ngx-dropzone-image-preview>
+          </ngx-dropzone>
+        </section>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" (click)="UpdatePost()" data-bs-dismiss="modal">Modificar</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>

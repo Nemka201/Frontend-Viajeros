@@ -29,7 +29,8 @@ export class PostService {
   public GetPosts () : Observable<Post[]>{
     return this.HttpClient.get<Post[]>(this.postRoute);
   }
-  public UpdatePost (id: number, post: Post) : Observable<any>{
+  public UpdatePost (id:number ,post: PostDTO) : Observable<any>{
+    console.log(post)
     return this.HttpClient.put<any> (this.postRoute + `/${id}`, post);
   }
   public DeletePost (id: number) : Observable<any>{

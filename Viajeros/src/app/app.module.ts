@@ -24,6 +24,7 @@ import { RegisterComponent } from './components/login/register/register.componen
 import { CloudinaryModule } from '@cloudinary/ng';
 import { LastPostComponent } from './components/post/last-post/last-post.component';
 import { LastVideoComponent } from './components/video-card/last-video/last-video.component';
+import { LogoutButtonComponent } from './components/login/logout-button/logout-button.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { LastVideoComponent } from './components/video-card/last-video/last-vide
     EditVideoComponent,
     RegisterComponent,
     LastPostComponent,
-    LastVideoComponent
+    LastVideoComponent,
+    LogoutButtonComponent
   ],
   imports: [
     BrowserModule,

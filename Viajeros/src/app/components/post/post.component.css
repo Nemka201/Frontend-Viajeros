@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap');
+
+.image {
+    width: 100%;
+    height: 500px;
+    border-radius: .4rem;
+}
+
+.josefin-slab-400 {
+    font-family: "Josefin Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.josefin-slab-700 {
+    font-family: "Josefin Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.post{
+    border-radius: 1rem;
+    box-shadow: 0px 1px 4px rgba(119, 119, 119, 0.8);
+}

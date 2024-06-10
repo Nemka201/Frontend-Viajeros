@@ -11,7 +11,7 @@ import { PostService } from 'src/app/services/post.service';
 export class PostComponent {
   posts: Post[] = [];
   isLogged: boolean = false;
-
+  postId: any;
   constructor(
     private postService: PostService,
     private tokenService: TokenService
@@ -26,16 +26,20 @@ export class PostComponent {
       this.posts = data;
     });
   }
+  SavePostId(newId:any){
+    this.postId = newId;
+  }
   DeletePost(id?: number) {
     if (id != undefined) {
-      this.postService.DeletePost(id).subscribe(
-        (data) => {
+      this.postService.DeletePost(id).subscribe({
+        next: (data) => {
+          console.log(data);
           this.LoadPosts();
         },
-        (error) => {
+        error: (error) => {
           alert('No se pudo eliminar');
         }
-      );
+      });
     }
   }
 }

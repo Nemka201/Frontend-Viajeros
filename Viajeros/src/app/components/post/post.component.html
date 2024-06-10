@@ -1,12 +1,41 @@
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <app-add-post/>
-            <div class="post" *ngFor="let post of posts">
-                <h2>{{post.title}}</h2>
-                <p>{{post.description}}</p>
-                <p>{{post.created}}</p>
+        <app-add-post *ngIf="isLogged"/>
+
+        <section class="col-12 pt-3" *ngFor="let post of posts">
+            <div class="post bg-light text-dark p-5 pt-3 pb-1">
+                <h2 class="text-center josefin-slab-700">{{post.title}}</h2>
+                <app-edit-post [post]="post" *ngIf="isLogged"/>
+                <p class="josefin-slab-400">{{post.description}}</p>
+                <ng-container *ngIf="post.images[0]?.imageUrl">
+                    <img src="{{post.images[0].imageUrl}}" alt="{{post.title}}" class="image" loading="lazy">
+                </ng-container>
+                <p class="text-end pt-3 pb-0">{{post.created | date:'dd/MM/yyyy'}}</p>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary align-self-center" data-bs-toggle="modal"
+                    data-bs-target="#deletePostModal" (click)="SavePostId(post.id)" *ngIf="isLogged">
+                    Borrar
+                </button>
             </div>
+        </section>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade text-dark" id="deletePostModal" tabindex="-1" aria-labelledby="deletePostModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 text-center" id="deletePostModal">Eliminar Post</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" (click)="DeletePost(postId)"
+                        data-bs-dismiss="modal">Borrar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
