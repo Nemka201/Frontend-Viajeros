@@ -1,0 +1,40 @@
+<!-- Button trigger modal -->
+<i mat-raised-button color="light" (click)="ShowUpdateTag()"
+  [attr.data-bs-target]="'#' + tag.id" aria-label="Edit">
+  <mat-icon fontIcon="edit" color="dark" />
+</i>
+
+<!-- Modal -->
+<div class="modal fade text-dark" [attr.id]="tag.id" [attr.aria-labelledby]="tag.id" tabindex="-1" [style.display]="isVisible ? 'block' : 'none'"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" [attr.id]="tag.id">Modificar Programa</h1>
+        <button type="button" class="btn-close"  aria-label="Close"></button>
+      </div>
+      <form [formGroup]="tagForm">
+        <div class="modal-body">
+          <mat-form-field class="col-12">
+            <mat-label>Titulo</mat-label>
+          <input matInput id="nameUpdateTag" name="nameUpdateTag" class="mb-2" formControlName="nameUpdateTag"
+          placeholder="Categoria" required>
+          </mat-form-field>    
+          <mat-form-field class="col-12">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput id="descriptionUpdateTag" name="descriptionUpdateTag" class="mb-0" formControlName="descriptionUpdateTag"
+            required></textarea>
+          </mat-form-field>            
+        </div>
+        <div class="modal-footer">
+          <button mat-stroked-button color="warn" aria-label="Close" (click)="ShowUpdateTag()"> <mat-icon fontIcon="close"
+              color="warn" />
+            Cancelar</button>
+          <button mat-flat-button color="accent" (click)="UpdateTag(); ShowUpdateTag()" aria-label="EditButton"> <mat-icon fontIcon="check"
+              color="dark" />
+            Modificar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

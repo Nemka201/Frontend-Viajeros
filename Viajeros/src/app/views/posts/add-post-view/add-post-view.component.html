@@ -1,0 +1,33 @@
+<div class="modal-content bg-dark">
+      <h1 class="modal-title fs-5 text-center" id="addPostModal">Agregar Post</h1>
+    <form [formGroup]="postForm">
+      <div class="modal-body">
+        <mat-form-field class="col-12 p-3 pb-0 pt-1">
+          <mat-label>Titulo</mat-label>
+        <input matInput id="title" name="title" class=" mb-2" formControlName="title"
+        placeholder="Ingrese el titulo" required>
+        </mat-form-field>      
+        <mat-form-field class="col-12 p-3 pb-0 pt-1">
+          <mat-label>Descripcion</mat-label>
+          <textarea matInput id="description" name="description" class="mb-0 " formControlName="description"
+          required></textarea>
+        </mat-form-field>
+      </div>
+      <section class="p-3 pb-5 pt-1">
+        <ngx-dropzone (change)="onSelect($event)" accept="image/jpeg,image/jpg,image/png" style="background-color: #4a4a4a;">
+          <ngx-dropzone-label class="text-light">Arrastra las imagenes</ngx-dropzone-label>
+          <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+          </ngx-dropzone-image-preview>
+        </ngx-dropzone>
+      </section>
+      <div class="modal-footer">
+        <button mat-stroked-button color="warn" data-bs-dismiss="modal" aria-label="Close" class="me-2"> <mat-icon fontIcon="close"
+            color="warn" />
+          Cancelar</button>
+        <button mat-flat-button color="accent" (click)="addPost()" aria-label="AddButton"> <mat-icon fontIcon="check"
+            color="dark" />
+          Agregar</button>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,44 @@
+.btn-tags{
+    background-color: #909090c2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    position: relative;
+    bottom: 5px;
+    border-radius: 10px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+.btn-tags:hover{
+    transition: 0.3s ease-in-out;
+    background-color: #7b1fa2;
+    color:white;
+}
+.btn-delete{
+    cursor: pointer;
+    position: relative;
+    top:4px;
+    text-align: end;
+}
+
+.tag{
+    background-color: rgb(74, 74, 74);
+    box-shadow: 0px 0px 4px 0px rgba(176, 176, 176, 0.25);
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+.tag:hover{
+    background-color: #601481bf;
+    transition: 0.3s ease-in-out;
+    border-radius: 10px;
+}
+.tag.selected {
+    background-color:chartreuse;
+    color: black!important;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}

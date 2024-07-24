@@ -1,0 +1,17 @@
+h2{
+    font-size:2rem;
+}
+.btn-menu{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background: #6B6B6B;
+}
+.input-search{
+    padding-left: 25px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 9999px;
+    height: 40px;
+}
+.video-index{
+    background-color: #D6D6D6;
+}

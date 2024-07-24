@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditVideoComponent } from './edit-video.component';
+import { MosaicVideoComponent } from './mosaic-video.component';
 
-describe('EditVideoComponent', () => {
-  let component: EditVideoComponent;
-  let fixture: ComponentFixture<EditVideoComponent>;
+describe('AddVideoComponent', () => {
+  let component: MosaicVideoComponent;
+  let fixture: ComponentFixture<MosaicVideoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditVideoComponent ]
+      declarations: [ MosaicVideoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EditVideoComponent);
+    fixture = TestBed.createComponent(MosaicVideoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

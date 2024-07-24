@@ -1,23 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --mdc-protected-button-container-elevation-shadow: 0px 2px 1px -1px rgba(0, 0, 0, .2), 0px 1px 1px 0px rgba(0, 0, 0, .14), 0px 1px 3px 0px rgba(0, 0, 0, .12);
+  --mdc-protected-button-label-text-font: Roboto, sans-serif;
+  --mdc-protected-button-label-text-tracking: .006rem;
+  --mdc-protected-button-label-text-size: .875rem;
+  --mdc-protected-button-label-text-weight: 500;
+  --mdc-protected-button-container-height: 40px;
+  --mdc-protected-button-container-shape: 9999px;
+  --mat-protected-button-horizontal-padding: 24px;
+  --mdc-protected-button-container-elevation-shadow: 0px 2px 1px -1px rgba(0, 0, 0, .2), 0px 1px 1px 0px rgba(0, 0, 0, .14), 0px 1px 3px 0px rgba(0, 0, 0, .12);
+}
+
+.anonymous-pro-regular {
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.anonymous-pro-bold {
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.anonymous-pro-regular-italic {
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.anonymous-pro-bold-italic {
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+
 .londrina-solid-thin {
-    font-family: "Londrina Solid", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-  }
-  
-  .londrina-solid-light {
-    font-family: "Londrina Solid", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  .londrina-solid-regular {
-    font-family: "Londrina Solid", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .londrina-solid-black {
-    font-family: "Londrina Solid", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-  }
+  font-family: "Londrina Solid", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.londrina-solid-light {
+  font-family: "Londrina Solid", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.londrina-solid-regular {
+  font-family: "Londrina Solid", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.londrina-solid-black {
+  font-family: "Londrina Solid", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.magneto {
+  font-family: magneto, sans-serif!important;
+  font-style: normal;
+  font-weight: 700;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8)!important;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.navbar {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15)
+}
+
+button {
+  /* font-family: var(--mdc-protected-button-label-text-font)!important;
+  font-size: var(--mdc-protected-button-label-text-size)!important;
+  letter-spacing: var(--mdc-protected-button-label-text-tracking)!important;
+  font-weight: var(--mdc-protected-button-label-text-weight)!important;
+  height: var(--mdc-protected-button-container-height)!important;
+  padding: 0 var(--mat-protected-button-horizontal-padding, 16px)!important;
+  box-shadow: var(--mdc-protected-button-container-elevation-shadow)!important; */
+  border-radius: var(--mdc-protected-button-container-shape) !important;
+  font-size: 14px !important;
+}
+
+.modal-content {
+  background-color: #191c1c;
+  color: rgba(255, 255, 255, 0.87);
+  border-radius: 20px;
+}
+
+.modal-header {
+  border: none !important;
+}
+
+.modal-footer {
+  border: none !important;
+}

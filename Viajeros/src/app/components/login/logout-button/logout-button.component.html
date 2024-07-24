@@ -1,19 +1,22 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-danger align-self-center" data-bs-toggle="modal" data-bs-target="#logoutModal" *ngIf="isLogged">
-    Salir
-  </button>
+<i type="button" data-bs-toggle="modal" data-bs-target="#logoutModal" *ngIf="isLogged">
+  <mat-icon fontIcon="logout" color="light" style="font-size: 1.6rem;"/>
+  </i>
   
   <!-- Modal -->
   <div class="modal fade text-dark" id="logoutModal" tabindex="-1" aria-labelledby="logoutModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5 text-center" id="loginModal">¿Salir de la cuenta?</h1>
+        <div class="modal-header text-center">
+          <h1 class="modal-title fs-5 text-center mb-0" id="loginModal">¿Salir de la cuenta?</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-          <div class="modal-footer text-center justify-content-center">
-            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-danger" (click)="Logout()" data-bs-dismiss="modal">Salir</button>
+          <div class="modal-footer mt-0">
+            <button mat-stroked-button color="light" data-bs-dismiss="modal" aria-label="Close">Cancelar
+            </button>
+            <button mat-raised-button color="warn" data-bs-dismiss="modal" aria-label="Close" (click)="Logout()"> <mat-icon fontIcon="logout"
+              color="light" />Salir
+          </button>
           </div>
       </div>
     </div>

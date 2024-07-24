@@ -4,11 +4,11 @@ import { Post, PostDTO } from 'src/app/models/post.model';
 import { PostService } from 'src/app/services/post.service';
 import { UploadCloudinaryService } from 'src/app/services/upload-cloudinary.service';
 
-
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
-  styleUrls: ['./add-post.component.css']
+  styleUrls: ['./add-post.component.css'],
+  
 })
 export class AddPostComponent {
   postForm: FormGroup;
@@ -27,12 +27,13 @@ export class AddPostComponent {
       description: this.postForm.value.description,
       images: [] 
     };
-  
+
     try {
       this.cloudinaryService.uploadMultipleImages(this.files).subscribe(imagesUrl => {
+        const httpsImagesUrl = imagesUrl.map(url => this.convertToHttps(url));
         const postDTO: PostDTO = {
           post,
-          imagesUrl 
+          imagesUrl : httpsImagesUrl
         };
         this.postService.AddPost(postDTO).subscribe(data => {
           alert('Post agregado correctamente.');
@@ -42,7 +43,17 @@ export class AddPostComponent {
       console.error('Error uploading images:', error);
     }
   }
+
+  // Guardo las URLS en https para poder usar certificaciones SSL
   
+  convertToHttps(url: string): string {
+    if (url.startsWith('http://')) {
+      return url.replace('http://', 'https://');
+    }
+    // Si la URL no comienza con "http://", devolvemos la original
+    return url;
+  }
+
   AddImages() 
   {
     return this.cloudinaryService.uploadMultipleImages(this.files);
@@ -57,4 +68,5 @@ export class AddPostComponent {
     console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
   }
+  
 }

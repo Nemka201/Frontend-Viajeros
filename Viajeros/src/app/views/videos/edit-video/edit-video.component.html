@@ -1,0 +1,66 @@
+<app-navbar />
+<div class="container-fluid bg-dark p-4 pt-5">
+  <div class="row">
+    <div class="col-12 col-md-3 col-lg-4"></div>
+    <div class="col-12 col-md-6 col-lg-4 mt-4">
+      <div class="modal-content bg-dark">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" [attr.id]="video.date">Modificar Programa</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="editVideoModal" aria-label="Close"></button>
+        </div>
+        <form [formGroup]="videoForm">
+          <div class="modal-body">
+            <mat-form-field class="col-12 mt-4">
+              <mat-label>Titulo</mat-label>
+              <input matInput id="name" name="name" class="mb-2" formControlName="name" placeholder="Ingrese el titulo"
+                required>
+            </mat-form-field>
+            <mat-form-field class="col-12">
+              <mat-label>Descripcion</mat-label>
+              <textarea matInput id="description" name="description" class="mb-0" formControlName="description"
+                required></textarea>
+            </mat-form-field>
+            <mat-form-field class="col-12">
+              <mat-label>Categoría</mat-label>
+              <mat-select formControlName="categoryId" id="categoryId" name="categoryId">
+                <mat-option *ngFor="let tag of tags" [value]="tag.id">{{ tag.name }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-12">
+              <mat-label>Primer Link</mat-label>
+              <input matInput id="videoLink" name="videoLink" class="mb-0" formControlName="videoLink" required>
+            </mat-form-field>
+            <mat-form-field class="col-12">
+              <mat-label>Segundo Link?</mat-label>
+              <input matInput id="videoLinkSecond" name="videoLinkSecond" class="mb-0" formControlName="videoLinkSecond">
+            </mat-form-field>
+            <mat-form-field class="col-12">
+              <mat-label>Tercer Link?</mat-label>
+              <input matInput id="videoLinkThird" name="videoLinkThird" class="mb-0" formControlName="videoLinkThird">
+            </mat-form-field>
+            <mat-form-field class="col-12">
+              <mat-label>Cuarto Link?</mat-label>
+              <input matInput id="videoLinkFourth" name="videoLinkFourth" class="mb-0" formControlName="videoLinkFourth">
+            </mat-form-field>
+
+          </div>
+          <div class="modal-footer mt-4 mb-5">
+            <a [routerLink]="['/Videos']">
+              <button mat-stroked-button color="warn" data-bs-dismiss="modal" aria-label="Close"> <mat-icon
+                  fontIcon="close" color="warn" />
+                Cancelar</button>
+            </a>
+            <!-- <a [routerLink]="['/Videos']"> -->
+
+              <button mat-flat-button color="accent" (click)="updateVideo()" aria-label="EditButton"> <mat-icon
+                  fontIcon="check" color="dark" />
+                Modificar</button>
+            <!-- </a> -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+<app-footer />

@@ -1,0 +1,43 @@
+<h2 class="text-center text-light mt-0">Agregar Video</h2>
+<form [formGroup]="videoForm">
+  <div class="modal-body p-5 pb-2 pt-2">
+    <mat-form-field class="col-12">
+      <mat-label>Titulo</mat-label>
+      <input matInput id="name" name="name" class="mb-2" formControlName="name" placeholder="Ingrese el titulo"
+        required>
+    </mat-form-field>
+    <mat-form-field class="col-12">
+      <mat-label>Descripcion</mat-label>
+      <textarea matInput id="description" name="description" class="mb-0" formControlName="description"
+        required></textarea>
+    </mat-form-field>
+    <mat-form-field class="col-12">
+      <mat-label>Categoría</mat-label>
+      <mat-select formControlName="categoryId">
+        <mat-option *ngFor="let tag of tags" [value]="tag.id">{{ tag.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-12">
+      <mat-label>Primer Link</mat-label>
+      <input matInput id="videoLink" name="videoLink" class="mb-0" formControlName="videoLink" required>
+    </mat-form-field>
+    <mat-form-field class="col-12">
+      <mat-label>Segundo Link?</mat-label>
+      <input matInput id="videoLinkSecond" name="videoLinkSecond" class="mb-0" formControlName="videoLinkSecond">
+    </mat-form-field>
+    <mat-form-field class="col-12">
+      <mat-label>Tercer Link?</mat-label>
+      <input matInput id="videoLinkThird" name="videoLinkThird" class="mb-0" formControlName="videoLinkThird">
+    </mat-form-field>
+    <mat-form-field class="col-12">
+      <mat-label>Cuarto Link?</mat-label>
+      <input matInput id="videoLinkFourth" name="videoLinkFourth" class="mb-0" formControlName="videoLinkFourth">
+    </mat-form-field>
+  </div>
+  <div class="modal-footer">
+    <button mat-flat-button color="accent" (click)="addVideo()" aria-label="AddButton" class="me-5">
+      <mat-icon fontIcon="check" color="dark" />
+      Agregar
+    </button>
+  </div>
+</form>

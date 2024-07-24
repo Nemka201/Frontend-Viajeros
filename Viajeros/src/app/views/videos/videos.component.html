@@ -1,0 +1,57 @@
+<app-navbar />
+<div class="container-fluid bg-dark">
+  <div class="row">
+    <div class="col-12 col-lg-6 border-right mt-5">
+        <app-add-video/>
+    </div>
+    <div class="col-12 col-lg-6 mt-5">
+      <h2 class="text-center text-light mt-0">Todos los Videos</h2>
+      <table mat-table [dataSource]="videos" class="mt-2">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Indice </th>
+          <td mat-cell *matCellDef="let row"> {{ row.id }} </td> </ng-container>
+      
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let row"> {{ row.name }} </td> </ng-container>
+      
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> Descripción </th>
+          <td mat-cell *matCellDef="let row"> {{ row.description }} </td> </ng-container>
+      
+        <ng-container matColumnDef="videoLink">
+          <th mat-header-cell *matHeaderCellDef> Link del video </th>
+          <td mat-cell *matCellDef="let row"> {{ row.videoLink }} </td> </ng-container>
+      
+        <ng-container matColumnDef="tags">
+          <th mat-header-cell *matHeaderCellDef> Categoria </th>
+          <td mat-cell *matCellDef="let row">
+            {{ getTagsAsString(row.tags) }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let row">
+            <a mat-icon-button [routerLink]="['/Videos', row.id]">
+              <mat-icon>edit</mat-icon>
+            </a>
+            <button mat-icon-button (click)="deleteVideo(row.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="['id', 'name', 'description', 'videoLink', 'tags', 'actions']"></tr>
+      
+        <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'description', 'videoLink', 'tags', 'actions'];"></tr>
+      
+      </table>
+      <mat-paginator [length]="totalVideos" [pageSize]="pageSize" (page)="handlePageEvent($event)" aria-label="Select page"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+    </div>
+  </div>
+</div>
+<app-footer/>

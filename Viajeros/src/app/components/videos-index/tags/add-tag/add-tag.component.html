@@ -1,0 +1,35 @@
+<!-- Button trigger modal -->
+<button (click)="ShowAddTag()" mat-raised-button color="primary" aria-label="AddTag" class="mt-3 btn-add-tag">
+    <mat-icon fontIcon="add" color="" class="text-center ms-2" />
+</button>
+
+<section id="add-tag" [style.display]="isVisible ? 'block' : 'none'">
+    <hr>
+    <h2 class="fs-5 text-center" id="addTagModal">Agregar Categoria</h2>
+    <button type="button" class="btn-close" data-bs-dismiss="addTagModal" aria-label="Close"></button>
+    <form [formGroup]="tagForm">
+        <div class="modal-body">
+            <mat-form-field class="col-12">
+                <mat-label>Titulo</mat-label>
+                <input matInput id="titleTag" name="titleTag" class=" mb-2" formControlName="titleTag"
+                    placeholder="Ingrese el titulo" required>
+            </mat-form-field>
+
+            <mat-form-field class="col-12">
+                <mat-label>Descripcion</mat-label>
+                <textarea matInput id="descriptionTag" name="descriptionTag" class="mb-0 "
+                    formControlName="descriptionTag" required></textarea>
+            </mat-form-field>
+        </div>
+        <div class="modal-footer align-content-start">
+            <button mat-stroked-button color="warn" data-bs-dismiss="addTagModal" aria-label="Close" (click)="ShowAddTag()"> <mat-icon
+                    fontIcon="close" color="warn" class="ms-2"/>
+                </button>
+            <button mat-flat-button color="primary" (click)="AddTag(); ShowAddTag()" aria-label="AddButton"> <mat-icon fontIcon="check"
+                    color="dark" class="ms-2"/>
+                </button>
+        </div>
+        <hr>
+
+    </form>
+</section>

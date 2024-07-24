@@ -1,0 +1,27 @@
+.social-media{
+    font-size: 36px;
+}
+.icon{
+    width: 36px;
+    height: 36px;
+    transition: fill 0.3s;
+}
+.youtube{
+    width: 42px;
+    height: 42px;
+}
+
+.youtube:hover{
+    fill:red;
+    transition: fill 0.3s;
+}
+.facebook:hover{
+    fill: blue;
+    transition: fill 0.3s;
+}
+.instagram:hover{
+    fill: white;    
+    background: linear-gradient(45deg, #8a3ab9, #e1306c);
+    border-radius: 10%;
+    transition: fill 0.3s;
+}

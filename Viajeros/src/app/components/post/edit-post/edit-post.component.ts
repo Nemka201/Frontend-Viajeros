@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { firstValueFrom, lastValueFrom } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
 import { Post, PostDTO } from 'src/app/models/post.model';
 import { PostService } from 'src/app/services/post.service';
 import { UploadCloudinaryService } from 'src/app/services/upload-cloudinary.service';

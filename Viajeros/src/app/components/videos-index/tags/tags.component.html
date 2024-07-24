@@ -1,0 +1,43 @@
+<div>
+    <div data-bs-toggle="modal" data-bs-target="#searchModal" class="btn-tags mt-1" aria-label="Tags">
+      <mat-icon fontIcon="menu" class="text-light m-1" style="font-size: 2em;"></mat-icon>
+    </div>
+  </div>
+  
+  <div class="modal fade text-dark" id="searchModal" tabindex="-1" aria-labelledby="searchModal" aria-hidden="true"
+    data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-center" id="searchModal">Filtrar por categoria</h1>
+        </div> 
+        <div class="modal-body">
+          <div class="container">
+            <section class="row pt-1 align-items-center justify-content-center">
+              <div class="text-light text-start col-5 col-md-3 me-4 tag mb-3" *ngFor="let tag of tags" [class.selected]="selectedTags.includes(tag)">
+                <h2 class="josefin-slab-700 ms-3 pt-3" (click)="selectTag(tag)">
+                  {{ tag.name }}
+                  <i mat-button color="warn" data-bs-toggle="modal" (click)="DeleteTag(tag.id)" *ngIf="isLogged"
+                    aria-label="Delete">
+                    <mat-icon fontIcon="delete" color="warn" class="ms-3 btn-delete"></mat-icon>
+                  </i>
+                </h2>
+              </div>
+            </section>
+          </div>
+          <app-add-tag *ngIf="isLogged" class="btn-add-tag"></app-add-tag>
+        </div>
+        <div class="modal-footer">
+          <button mat-stroked-button color="warn" data-bs-dismiss="modal" aria-label="Close">
+            <mat-icon fontIcon="close" color="warn"></mat-icon>
+            Salir
+          </button>
+          <button mat-flat-button color="primary" aria-label="FilterButton" (click)="onFilterClick()">
+            <mat-icon fontIcon="check" color="dark" ></mat-icon>
+            Filtrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
