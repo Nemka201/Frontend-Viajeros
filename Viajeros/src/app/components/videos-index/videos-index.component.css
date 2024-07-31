@@ -12,6 +12,14 @@ h2{
     border-radius: 9999px;
     height: 40px;
 }
+.input-search::placeholder{
+    color: rgba(255, 255, 255, 0.6);
+}
 .video-index{
-    background-color: #D6D6D6;
+    background-color: rgb(33, 36, 41);
+}
+#search-videos{
+    background-color:#4a4a4a;
+    color: rgba(255, 255, 255, 0.87);
+    border: 1px solid black;
 }

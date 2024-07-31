@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/services/jwt.service';
+import { NavbarService } from 'src/app/services/navbar.service';
 
 @Component({
   selector: 'app-logout-button',
@@ -8,12 +9,12 @@ import { TokenService } from 'src/app/services/jwt.service';
 })
 export class LogoutButtonComponent implements OnInit{
   isLogged : boolean = true;
-  constructor(private tokenService:TokenService){}
+  constructor(private tokenService:TokenService, private navbarService: NavbarService){}
   ngOnInit(): void {
     this.isLogged = this.tokenService.getToken() ? true : false;
   }
   Logout(): void {
       this.tokenService.Logout();
-      this.ngOnInit();
-  }
+      this.navbarService.emitRefreshNavbar();
+    }
 }

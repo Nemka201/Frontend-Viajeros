@@ -20,17 +20,17 @@ export class TagsComponent {
   ) {}
 
   ngOnInit(): void {
-    this.LoadTags();
+    this.loadTags();
     this.isLogged = this.tokenService.getToken() ? true : false;
   }
 
   // Metodos
 
-  LoadTags() {
+  loadTags() {
     this.tagService.GetTags().subscribe((data) => this.tags.push(...data));
   }
   
-  DeleteTag(id?: number) {
+  deleteTag(id?: number) {
     if (id != undefined) {
       this.tagService
         .DeleteTag(id)
@@ -41,8 +41,6 @@ export class TagsComponent {
   }
 
   onFilterClick() {
-    console.log("Boton de filtro")
-    console.log(this.selectedTags);
     this.filterEvent.emit(this.selectedTags); 
   }
 

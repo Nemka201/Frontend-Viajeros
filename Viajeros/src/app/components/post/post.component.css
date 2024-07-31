@@ -3,7 +3,6 @@
 .image {
     width: 100%;
     height: 500px;
-    border-radius: .4rem;
 }
 
 .josefin-slab-400 {
@@ -20,7 +19,20 @@
     font-style: normal;
 }
 
-.post{
+.post {
     border-radius: 1rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15)
+    box-shadow: 0 5px 0.5rem rgba(0, 0, 0, 0.35);
+    font-size: 1.25em;
+
+    h2 {
+        font-size: 1.35em;
+        color: #0D8921;
+        text-transform: uppercase;
+        text-decoration: underline;
+    }
+}
+
+.post-created {
+    color: #65676b;
+    font-size: .8em;
 }

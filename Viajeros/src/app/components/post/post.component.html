@@ -1,16 +1,21 @@
 <div class="container" id="posts">
     <div class="row">
         <app-add-post *ngIf="isLogged"/>
-
-        <section class="col-12 pt-3" *ngFor="let post of posts">
+        <div class="col-12 col-lg-1"></div>
+        <section class="col-12 col-lg-10 pt-3" *ngFor="let post of posts">
             
-            <div class="post  text-dark p-5 pt-3 pb-1 mb-3">
-                <h2 class="text-center josefin-slab-700">{{post.title}}</h2>
-                <p class="josefin-slab-400">{{post.description}}</p>
+            <div class="post text-dark p-0 pt-3 pb-0 mb-3">
+                <div class="text-center bg-white">
+                    <h2 class="josefin-slab-700">{{post.title}}</h2>
+                </div>
+                <div class="p-3">
+                    <p class="josefin-slab-400">{{post.description}}</p>
+                </div>
+
                 <ng-container *ngIf="post.images[0]?.imageUrl">
                     <img src="{{post.images[0].imageUrl}}" alt="{{post.title}}" class="image" loading="lazy">
                 </ng-container>
-                <p class="text-end pt-3 pb-0">{{post.created | date:'dd/MM/yyyy'}}</p>
+                <p class="text-end pt-3 pb-0 post-created me-2">{{post.created | date:'dd/MM/yyyy'}}</p>
                 <div class="pb-2 text-end">
                     <button mat-button color="warn" data-bs-toggle="modal"
                         data-bs-target="#deletePostModal" (click)="SavePostId(post.id)" *ngIf="isLogged"
@@ -23,36 +28,6 @@
         </section>
     </div>
 </div>
-
-<!-- <div class="container">
-    <div class="row">
-        <app-add-post *ngIf="isLogged"/>
-        <section class="col-12 pt-3" *ngFor="let post of posts">
-            <mat-expansion-panel (opened)="panelOpenState = true"
-            (closed)="panelOpenState = false">
-                <mat-expansion-panel-header style="min-height: 25vh;">
-                    <mat-panel-title>{{post.title}}</mat-panel-title>
-                    <mat-panel-description>
-                        {{panelOpenState ? post.description : post.description.substring(0,1000).concat("...")}}
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
-                <ng-container *ngIf="post.images[0]?.imageUrl">
-                    <img src="{{post.images[0].imageUrl}}" alt="{{post.title}}" class="image" loading="lazy">
-                </ng-container>
-                <p class="text-end pt-3 pb-0">{{post.created | date:'dd/MM/yyyy'}}</p>
-                <div class="pb-2 text-end">
-                    <button mat-button color="warn" data-bs-toggle="modal"
-                        data-bs-target="#deletePostModal" (click)="SavePostId(post.id)" *ngIf="isLogged"
-                        aria-label="Delete">
-                        <mat-icon fontIcon="delete" color="warn"/>Borrar
-                    </button>
-                    <app-edit-post [post]="post" *ngIf="isLogged" class="ps-2 text-start"/>
-                </div>
-            </mat-expansion-panel>
-        </section>
-    </div>
-</div> -->
-
 
 <!-- Modal -->
 <div class="modal fade text-dark" id="deletePostModal" tabindex="-1" aria-labelledby="deletePostModal" aria-hidden="true">

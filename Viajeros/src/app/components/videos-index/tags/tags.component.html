@@ -6,7 +6,7 @@
   
   <div class="modal fade text-dark" id="searchModal" tabindex="-1" aria-labelledby="searchModal" aria-hidden="true"
     data-bs-backdrop="static">
-    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5 text-center" id="searchModal">Filtrar por categoria</h1>
@@ -17,7 +17,7 @@
               <div class="text-light text-start col-5 col-md-3 me-4 tag mb-3" *ngFor="let tag of tags" [class.selected]="selectedTags.includes(tag)">
                 <h2 class="josefin-slab-700 ms-3 pt-3" (click)="selectTag(tag)">
                   {{ tag.name }}
-                  <i mat-button color="warn" data-bs-toggle="modal" (click)="DeleteTag(tag.id)" *ngIf="isLogged"
+                  <i mat-button color="warn" data-bs-toggle="modal" (click)="deleteTag(tag.id)" *ngIf="isLogged"
                     aria-label="Delete">
                     <mat-icon fontIcon="delete" color="warn" class="ms-3 btn-delete"></mat-icon>
                   </i>

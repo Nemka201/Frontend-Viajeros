@@ -29,36 +29,13 @@ export class VideosIndexComponent implements OnInit {
   ngOnInit(): void {
 
     // Llamo los últimos videos para mostrar
-    this.LoadLastVideos();
-
-    // Implement caching logic (assuming localStorage is available)
-    const currentDate = new Date();
-    const formattedDate = currentDate.toISOString();
-    const lastFetchDateStr = localStorage.getItem('lastVideoFetch');
-    const oneDayInMilliseconds = 24 * 60 * 60 * 1000; // 1 día en milisegundos
-
-    if (lastFetchDateStr) {
-      // If data exists in localStorage, check freshness
-      const lastFetchDate = new Date(lastFetchDateStr);
-      const difference = currentDate.getTime() - lastFetchDate.getTime();
-
-      if (Math.abs(difference) >= oneDayInMilliseconds) {
-        // Fetch videos if data is older than a day
-        this.FetchVideos(formattedDate);
-      } else {
-        // Use data from localStorage if it's freshA
-        this.videos = JSON.parse(localStorage.getItem('videos')!); // Use non-null assertion for clarity
-      }
-    }
-    if(!localStorage.getItem('videos')) {
-      // Fetch videos if no data exists in localStorage
-      this.FetchVideos(formattedDate);
-    }
+    this.loadLastVideos();
+    this.fetchVideos();
   }
 
   // Metodos
 
-  LoadLastVideos(): void {
+  loadLastVideos(): void {
     this.videoService.GetLastVideos().subscribe(
       (data) => {
         this.lastVideos = data.slice(1, 5);
@@ -71,12 +48,13 @@ export class VideosIndexComponent implements OnInit {
 
   }
 
-  FetchVideos(currentDate: string): void {
+  fetchVideos(): void {
     this.videoService.GetVideos().subscribe(
       (data) => {
+        console.log(data)
         this.videos = data;
         localStorage.setItem('videos', JSON.stringify(this.videos));
-        localStorage.setItem('lastVideoFetch', currentDate);
+        console.log(this.videos)
       },
       (error) => {
         console.error('Error al cargar los videos:', error);
@@ -95,10 +73,6 @@ export class VideosIndexComponent implements OnInit {
   }
 
   onFilterByTags(selectedTags: Tag[]) {
-    // Filter videos based on selectedTags
-    console.log(this.videos);
-    console.log("Videos-index");
-    console.log(selectedTags)
     this.displayedVideos = this.videos.filter(
       video => video.tags?.some(tag => selectedTags.some(selectedTag => selectedTag.id === tag.id))
     );

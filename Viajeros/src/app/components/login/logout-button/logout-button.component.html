@@ -1,18 +1,17 @@
 <!-- Button trigger modal -->
-<i type="button" data-bs-toggle="modal" data-bs-target="#logoutModal" *ngIf="isLogged">
-  <mat-icon fontIcon="logout" color="light" style="font-size: 1.6rem;"/>
+<i type="button" data-bs-toggle="modal" data-bs-target="#logoutModal">
+  <mat-icon fontIcon="logout" style="font-size: 1.6rem; color: white;"/>
   </i>
   
   <!-- Modal -->
   <div class="modal fade text-dark" id="logoutModal" tabindex="-1" aria-labelledby="logoutModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-header text-center">
-          <h1 class="modal-title fs-5 text-center mb-0" id="loginModal">¿Salir de la cuenta?</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="text-center">
+          <h1 class="modal-title fs-5 text-center mb-3 mt-3" id="loginModal">¿Salir de la cuenta?</h1>
         </div>
-          <div class="modal-footer mt-0">
-            <button mat-stroked-button color="light" data-bs-dismiss="modal" aria-label="Close">Cancelar
+          <div class="text-center mt-3 mb-4">
+            <button mat-stroked-button color="light" data-bs-dismiss="modal" aria-label="Close" class="me-3">Cancelar
             </button>
             <button mat-raised-button color="warn" data-bs-dismiss="modal" aria-label="Close" (click)="Logout()"> <mat-icon fontIcon="logout"
               color="light" />Salir

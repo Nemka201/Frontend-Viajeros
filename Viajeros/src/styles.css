@@ -94,7 +94,8 @@ button {
 }
 
 .modal-content {
-  background-color: #191c1c;
+  /* background-color: #191c1c; */
+  background-color: rgb(33, 36, 41);
   color: rgba(255, 255, 255, 0.87);
   border-radius: 20px;
 }

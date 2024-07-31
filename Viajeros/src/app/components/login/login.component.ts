@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { LoginUser } from 'src/app/models/login.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/jwt.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { NavbarService } from 'src/app/services/navbar.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private tokenService: TokenService,
     private authService: AuthService,
-    private router: Router,
+    private navbarService: NavbarService,
     private formBuilder: FormBuilder
   ) {
     this.loginForm = this.formBuilder.group({
@@ -56,6 +57,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.setUsername(name);
         this.tokenService.setAuthorities(role);
         this.roles = decodedToken.role;
+        this.navbarService.emitRefreshNavbar();
       }
       this.ngOnInit();
     });
