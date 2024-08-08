@@ -1,5 +1,5 @@
 h1{
-    font-size: 3rem;
+    font-size: 4rem;
 }
 h2{
     color: #0D8921;
@@ -14,32 +14,40 @@ p{
     font-family: "Londrina Solid", sans-serif;
     font-weight: 300;
 }
+.presentacion{
+  color: white;
+  font-size: 1.4em;
+}
 .box-image-first{
     border-radius: 50px;
-    background-image: url('https://www.casadelparqueapart.com.ar/wp-content/uploads/2021/10/CERRO-SAN-JAVIER.webp');
+    background-image: url('../../../assets/boximage1.jpeg');
     height: 300px;
     width: 300px;
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.45);
+    background-size:contain;
+
 }
 .box-image-second{
     border-radius: 50px;
-    background-image: url('https://www.casadelparqueapart.com.ar/wp-content/uploads/2021/10/CERRO-SAN-JAVIER.webp');
+    background-image: url('../../../assets/boximage2.jpeg');
     height: 300px;
     width: 300px;
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.45);
     position: relative;
     left: calc(40px + 8%);
     bottom: calc(40px + 20vh);
+    background-size: cover;
+
 }
 .container{
-    height: 75vh;
+    /* height: 100vh; */
 }
 .hero-background{
-    background-image: url('https://www.casadelparqueapart.com.ar/wp-content/uploads/2021/10/CERRO-SAN-JAVIER.webp');
+    background-image: url('../../../assets/herobackground.jpeg');
     background-attachment:fixed;
     background-position: 0 0;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     height: 500px;
 }
 .images-container{
