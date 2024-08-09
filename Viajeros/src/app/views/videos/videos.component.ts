@@ -111,4 +111,15 @@ export class VideosComponent {
     this.pageSize = event.pageSize;
     this.fetchVideos(this.currentPage, this.pageSize);
   }
+
+    /**
+   * Truncates the description to the specified length and displays it.
+   *
+   * @param description The description string to truncate.
+   * @param maxLength The maximum length to display (default: 50).
+   * @returns The truncated description with an ellipsis if exceeded.
+   */
+    truncateDescription(description: string, maxLength = 70): string {
+      return description.length > maxLength ? `${description.substring(0, maxLength)}...` : description;
+    }
 }

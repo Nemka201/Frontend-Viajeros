@@ -1,4 +1,4 @@
-<section class="container-fluid video-index text-light" id="programas">
+<section class="container-fluid video-index text-light mt-5" id="programas">
   <div class="row">
     <h2 class="text-center mt-5">Videos</h2>
     <div class="col-12 col-lg-6 mt-5">
@@ -7,17 +7,19 @@
           <mat-icon fontIcon="add" color="" class="text-center ms-2" />
         </button>
       </a>
-      <app-video-card [videoUrl]="lastVideos[0].videoLink"></app-video-card>
+      <app-video-card *ngIf="videos && videos[0]?.videoLink"
+        [videoUrl]="videos[0].videoLink"></app-video-card>
     </div>
     <div class="col-12 col-lg-6 mt-5 pb-5">
       <div class="d-flex ps-5 pe-5">
-        <input class="form-control me-2 input-search" type="search" placeholder="Buscar" aria-label="Search" id="search-videos"
-               [(ngModel)]="searchTerm" (keyup.enter)="handleSearch()">
-        <app-tags (filterEvent)="onFilterByTags($event)"/>
+        <input class="form-control me-2 input-search" type="search" placeholder="Buscar" aria-label="Search"
+          id="search-videos" [(ngModel)]="searchTerm" (keyup.enter)="handleSearch()">
+        <app-tags (filterEvent)="onFilterByTags($event)" />
       </div>
       <div class="row mt-5 mb-5">
         <div *ngFor="let video of displayedVideos.slice(0, 4)" class="col-11 col-md-5 ms-md-2 ms-0 mt-3 mb-3">
-          <app-mosaic-video [videoUrl]="video.videoLink"></app-mosaic-video>
+            <app-mosaic-video [videoUrl]="video.videoLink"></app-mosaic-video>
+
         </div>
       </div>
     </div>

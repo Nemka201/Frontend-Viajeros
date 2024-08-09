@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Video } from 'src/app/models/video.model';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VideoService } from 'src/app/services/video.service';
 import { Tag } from 'src/app/models/tag.model';
 import { TagService } from 'src/app/services/tag.service';
@@ -19,7 +19,7 @@ export class AddVideoComponent {
     private formBuilder: FormBuilder
   ) {
     this.videoForm = this.formBuilder.group({
-      name: [''],
+      name: ['', [Validators.required, Validators.maxLength(20)]],
       description: [''],
       videoLink: [''],
       videoLinkSecond: [''],
@@ -54,9 +54,12 @@ export class AddVideoComponent {
       });
     } catch (error) {
       console.error('Error al subir el programa:', error);
+      console.log(video);
     }
   }
-
+  hasError(controlName: string, errorName: string) {
+    return this.videoForm.get(controlName)?.hasError(errorName);
+  }
   loadTags() {
     this.tagService.GetTags().subscribe((data) => this.tags.push(...data));
   }

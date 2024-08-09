@@ -13,10 +13,11 @@
                 </div>
 
                 <ng-container *ngIf="post.images[0]?.imageUrl">
-                    <img src="{{post.images[0].imageUrl}}" alt="{{post.title}}" class="image" loading="lazy">
+                    <img src="{{post.images[0].imageUrl}}" alt="{{post.title}}" class="image" loading="lazy" style="object-fit: cover;">
                 </ng-container>
-                <p class="text-end pt-3 pb-0 post-created me-2">{{post.created | date:'dd/MM/yyyy'}}</p>
+                <p class="text-start pt-3 pb-0 post-created ms-2 mb-0">{{post.created | date:'dd/MM/yyyy'}}</p>
                 <div class="pb-2 text-end">
+
                     <button mat-button color="warn" data-bs-toggle="modal"
                         data-bs-target="#deletePostModal" (click)="SavePostId(post.id)" *ngIf="isLogged"
                         aria-label="Delete" class="text-start">

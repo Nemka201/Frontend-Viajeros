@@ -1,3 +1,21 @@
-.row{
+table{
+    td{
+        font-size: smaller;
+    }
+}
+.col-12{
+    height: 205vh;
+}
+.col-lg-6{
     height: 85vh;
+}
+.row{
+    height: 130vh;
+}
+@media (max-width:768){
+    table{
+        td{
+            font-size: small;
+        }
+    }
 }

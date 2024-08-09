@@ -3,8 +3,18 @@
   <div class="modal-body p-5 pb-2 pt-2">
     <mat-form-field class="col-12">
       <mat-label>Titulo</mat-label>
-      <input matInput id="name" name="name" class="mb-2" formControlName="name" placeholder="Ingrese el titulo"
-        required>
+      <input
+        matInput
+        id="name"
+        name="name"
+        class="mb-2"
+        formControlName="name"
+        placeholder="Ingrese el titulo"
+        required
+      >
+      <mat-error *ngIf="hasError('name', 'maxlength')">
+        El título debe tener un máximo de 20 caracteres.
+      </mat-error>
     </mat-form-field>
     <mat-form-field class="col-12">
       <mat-label>Descripcion</mat-label>

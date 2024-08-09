@@ -23,7 +23,7 @@ p{
     background-image: url('../../../assets/boximage1.jpeg');
     height: 300px;
     width: 300px;
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.45);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.55);
     background-size:contain;
 
 }
@@ -32,23 +32,21 @@ p{
     background-image: url('../../../assets/boximage2.jpeg');
     height: 300px;
     width: 300px;
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.45);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.55);
     position: relative;
     left: calc(40px + 8%);
     bottom: calc(40px + 20vh);
     background-size: cover;
 
 }
-.container{
-    /* height: 100vh; */
-}
+
 .hero-background{
     background-image: url('../../../assets/herobackground.jpeg');
     background-attachment:fixed;
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: contain;
-    height: 500px;
+    height: 40dvh;
 }
 .images-container{
     height:35vmax;
@@ -69,7 +67,15 @@ p{
     #sobreMi {
         left: 0;
     }
+    .hero-background{
+        background-size:cover;
+    }
     .container{
         height: 120vh;
+    }
+}
+@media (max-width:1200){
+    .hero-background{
+        background-size:contain;
     }
 }
